@@ -339,7 +339,7 @@ SignalR: () => (
 
         {/* Skills Grid - Simplified */}
         <div className={`mb-16 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: '600ms'}}>
-          <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 max-w-6xl mx-auto">
             {filteredSkills.map((skill, index) => (
               <div 
                 key={`${skill.name}-${activeCategory}`}
