@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MainIng from 'public/Main.png';
+import MainIng from '../assets/Main.png';
 const DeveloperCard = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
