@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import MainIng from 'public/Main.png';
 const DeveloperCard = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
@@ -18,7 +18,7 @@ const DeveloperCard = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-indigo-300/30 rounded-full blur-3xl scale-75" />
         {/* Image Implementation */}
         <img
-          src="public/Main.png" // Replace this with your actual path (e.g., public folder or import)
+          src={MainIng} // Replace this with your actual path (e.g., public folder or import)
           alt="Developer"
           className="h-80 object-contain rounded-3xl z-10"
         />
