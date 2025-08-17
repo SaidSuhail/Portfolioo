@@ -107,7 +107,7 @@
 //                     <Globe className="w-4 h-4" />
 //                     Live Demo
 //                   </a>
-                  
+
 //                   <a
 //                     href={project.githubUrl}
 //                     target="_blank"
@@ -144,21 +144,36 @@
 
 // export default Projects;
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Github, Globe, ArrowUpRight, ExternalLink, Star, Calendar, Users, ChevronLeft, ChevronRight } from 'lucide-react';
-import * as THREE from 'three';
+import React, { useState, useRef, useEffect } from "react";
+import {
+  Github,
+  Globe,
+  ArrowUpRight,
+  ExternalLink,
+  Star,
+  Calendar,
+  Users,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import * as THREE from "three";
 
 // Floating Particles Component using Three.js
 function FloatingParticles() {
   const mountRef = useRef(null);
-  
+
   React.useEffect(() => {
     if (!mountRef.current) return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
     mountRef.current.appendChild(renderer.domElement);
@@ -172,22 +187,22 @@ function FloatingParticles() {
       positions[i * 3] = (Math.random() - 0.5) * 20;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
-      
+
       velocities.push({
         x: (Math.random() - 0.5) * 0.02,
         y: (Math.random() - 0.5) * 0.02,
-        z: (Math.random() - 0.5) * 0.02
+        z: (Math.random() - 0.5) * 0.02,
       });
     }
 
     const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     const material = new THREE.PointsMaterial({
       size: 0.08,
       color: 0x3b82f6,
       transparent: true,
-      opacity: 0.4
+      opacity: 0.4,
     });
 
     const particles = new THREE.Points(geometry, material);
@@ -200,7 +215,7 @@ function FloatingParticles() {
       requestAnimationFrame(animate);
 
       const positions = particles.geometry.attributes.position.array;
-      
+
       for (let i = 0; i < particlesCount; i++) {
         positions[i * 3] += velocities[i].x;
         positions[i * 3 + 1] += velocities[i].y;
@@ -228,10 +243,10 @@ function FloatingParticles() {
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (mountRef.current && mountRef.current.contains(renderer.domElement)) {
         mountRef.current.removeChild(renderer.domElement);
       }
@@ -239,105 +254,121 @@ function FloatingParticles() {
     };
   }, []);
 
-  return <div ref={mountRef} className="fixed inset-0 pointer-events-none z-0" />;
+  return (
+    <div ref={mountRef} className="fixed inset-0 pointer-events-none z-0" />
+  );
 }
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredProject, setHoveredProject] = useState(null);
   const carouselRef = useRef(null);
-  
+
   // Enhanced project data
   const projects = [
     {
       id: 1,
       title: "BabyBliss E-Commerce",
       subtitle: "BabyProducts Selling Platform",
-      description: "A comprehensive React-based dashboard featuring real-time analytics, advanced inventory management, and seamless user experience.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      description:
+        "A comprehensive React-based dashboard featuring real-time analytics, advanced inventory management, and seamless user experience.",
+      image: "src/assets/Gemini_Generated_Image_3rhp9l3rhp9l3rhp.png",
       liveUrl: "https://your-project-live.com",
-      githubUrl: "https://github.com/yourusername/ecommerce-dashboard",
-      technologies: ["React", "Entity", "Mssql", "Chart.js","Jwt","Razorpay"],
+      githubUrl: "https://github.com/SaidSuhail/BabyBlissBackendAPI",
+      technologies: ["React", "Entity", "Mssql", "Chart.js", "Jwt", "Razorpay"],
       status: "Live",
       year: "2024",
-      stats: { stars: 124, contributors: 3 }
+      stats: { stars: 124, contributors: 3 },
     },
     {
       id: 2,
       title: "PlantHub",
       subtitle: "Plant Managing Platform",
-      description: "Subscription Based Plant Buying And Management Platform Aims To Promote PlantFarming",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      liveUrl: "https://your-weather-app.com",
-      githubUrl: "https://github.com/yourusername/weather-app",
-      technologies: ["React", "Three.js", "API Integration", "Entity","SignalR"],
+      description:
+        "Subscription Based Plant Buying And Management Platform Aims To Promote PlantFarming",
+      image: "src/assets/Gemini_Generated_Image_9nreaf9nreaf9nre.png",
+      liveUrl: "https://plant-care-hub.vercel.app/",
+      githubUrl: "https://github.com/SaidSuhail/PlantHubBackendMain",
+      technologies: [
+        "React",
+        "Tailwindcss",
+        "Entity",
+        "SignalR",
+        "Framer Motion"
+      ],
       status: "Live",
       year: "2024",
-      stats: { stars: 89, contributors: 2 }
+      stats: { stars: 89, contributors: 2 },
     },
     {
       id: 3,
-      title: "TaskFlow Pro",
-      subtitle: "Team Collaboration Platform",
-      description: "Enterprise-grade task management system with real-time collaboration, advanced analytics, automated workflows.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+      title: "ChatBot",
+      subtitle: "Automated Chat Bot",
+      description:"An intelligent auto-replying chatbot powered by OpenAI that can understand natural language, generate human-like responses, and engage in meaningful conversations. Designed to streamline communication, provide instant replies, and enhance user experience across different platforms.",
+      image: "src/assets/Gemini_Generated_Image_t2ztoct2ztoct2zt.png",
       liveUrl: "https://your-task-manager.com",
       githubUrl: "https://github.com/yourusername/task-manager",
-      technologies: ["React", "Firebase", "Tailwind CSS", "WebRTC"],
+      technologies: ["React", "Mssql", "Tailwind CSS", ".NET"],
       status: "Beta",
       year: "2024",
-      stats: { stars: 156, contributors: 5 }
+      stats: { stars: 156, contributors: 5 },
     },
     {
       id: 4,
-      title: "Creative Portfolio",
+      title: "Personal Portfolio",
       subtitle: "Interactive Design Showcase",
-      description: "Award-winning portfolio website featuring cutting-edge animations, immersive 3D elements, and sophisticated user interactions.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-      liveUrl: "https://your-portfolio.com",
-      githubUrl: "https://github.com/yourusername/portfolio",
-      technologies: ["React", "Framer Motion", "Three.js", "GSAP"],
+      description:
+        "Award-winning portfolio website featuring cutting-edge animations, immersive 3D elements, and sophisticated user interactions.",
+      image:
+        "src/assets/Gemini_Generated_Image_163y5e163y5e163y.png",
+      liveUrl: "https://portfolioo-fawn-eight.vercel.app/",
+      githubUrl: "https://github.com/SaidSuhail/Portfolioo",
+      technologies: ["React", "Framer Motion", "Three.js", "GSAP","Email.js"],
       status: "Live",
       year: "2023",
-      stats: { stars: 203, contributors: 1 }
+      stats: { stars: 203, contributors: 1 },
     },
     {
       id: 5,
       title: "AI Chat Assistant",
       subtitle: "Intelligent Conversation Platform",
-      description: "Modern chat application with AI-powered responses, real-time messaging, and advanced natural language processing.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+      description:
+        "Modern chat application with AI-powered responses, real-time messaging, and advanced natural language processing.",
+      image:
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
       liveUrl: "https://your-ai-chat.com",
       githubUrl: "https://github.com/yourusername/ai-chat",
       technologies: ["React", "OpenAI", "Socket.io", "Redis"],
       status: "Live",
       year: "2024",
-      stats: { stars: 78, contributors: 4 }
+      stats: { stars: 78, contributors: 4 },
     },
     {
       id: 6,
-      title: "Crypto Tracker",
-      subtitle: "Real-time Market Analysis",
-      description: "Professional cryptocurrency tracking platform with advanced charting, portfolio management, and market insights.",
-      image: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=400&fit=crop",
+      title: "Netflix Clone",
+      subtitle: "Clone of Netflix Ui",
+      description:
+        "Professional cryptocurrency tracking platform with advanced charting, portfolio management, and market insights.",
+      image:
+        "src/assets/netflix-1652679757.jpg",
       liveUrl: "https://your-crypto-tracker.com",
       githubUrl: "https://github.com/yourusername/crypto-tracker",
-      technologies: ["React", "D3.js", "WebSocket", "Redux"],
+      technologies: ["React", "js", "css","Bootstrap"],
       status: "Live",
       year: "2024",
-      stats: { stars: 92, contributors: 2 }
-    }
+      stats: { stars: 92, contributors: 2 },
+    },
   ];
 
   const cardsPerView = 1;
   const maxIndex = Math.max(0, projects.length - cardsPerView);
 
   const nextSlide = () => {
-    setCurrentIndex(prev => Math.min(prev + 1, maxIndex));
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const prevSlide = () => {
-    setCurrentIndex(prev => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
   const goToSlide = (index) => {
@@ -350,19 +381,22 @@ function Projects() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden">
       {/* Three.js Floating Particles Background */}
       <FloatingParticles />
-      
+
       {/* Enhanced Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-radial from-blue-100/40 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/2 -left-40 w-60 h-60 bg-gradient-radial from-indigo-100/50 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-cyan-50/60 to-transparent rounded-full blur-3xl animate-pulse delay-2000"></div>
-        
+
         {/* Animated Grid Pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-100/10 to-transparent">
-          <div className="w-full h-full opacity-20" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.15) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="w-full h-full opacity-20"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.15) 1px, transparent 0)`,
+              backgroundSize: "40px 40px",
+            }}
+          ></div>
         </div>
       </div>
 
@@ -383,17 +417,18 @@ function Projects() {
               </p>
             </div>
           </div> */}
-<div className="text-center mb-20">
- <div className="space-y-6">
-   <h1 className="text-6xl md:text-7xl font-light text-gray-900 dark:text-blue leading-tight tracking-tight">
-     Featured <span className="font-medium">Projects</span>
-   </h1>
-   <p className="text-xl text-gray-600 dark:text-black-300 max-w-3xl mx-auto leading-relaxed">
-     A curated collection of innovative solutions, creative experiments, and production-ready applications 
-     showcasing modern development practices and cutting-edge technologies.
-   </p>
- </div>
-</div>
+          <div className="text-center mb-20">
+            <div className="space-y-6">
+              <h1 className="text-6xl md:text-7xl font-light text-gray-900 dark:text-blue leading-tight tracking-tight">
+                Featured <span className="font-medium">Projects</span>
+              </h1>
+              <p className="text-xl text-gray-600 dark:text-black-300 max-w-3xl mx-auto leading-relaxed">
+                A curated collection of innovative solutions, creative
+                experiments, and production-ready applications showcasing modern
+                development practices and cutting-edge technologies.
+              </p>
+            </div>
+          </div>
           {/* Project Carousel Container */}
           <div className="relative mb-16">
             {/* Navigation Frame with Arrows */}
@@ -412,9 +447,9 @@ function Projects() {
                     key={i}
                     onClick={() => goToSlide(i)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      currentIndex === i 
-                        ? 'bg-blue-600 w-8' 
-                        : 'bg-slate-300 hover:bg-blue-400'
+                      currentIndex === i
+                        ? "bg-blue-600 w-8"
+                        : "bg-slate-300 hover:bg-blue-400"
                     }`}
                   />
                 ))}
@@ -431,11 +466,13 @@ function Projects() {
 
             {/* Projects Carousel */}
             <div className="overflow-hidden rounded-3xl">
-              <div 
+              <div
                 ref={carouselRef}
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{
-                  transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`
+                  transform: `translateX(-${
+                    currentIndex * (100 / cardsPerView)
+                  }%)`,
                 }}
               >
                 {projects.map((project, index) => (
@@ -449,11 +486,13 @@ function Projects() {
                     <div className="group bg-white/80 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-200/50 hover:border-blue-200 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2 transform-gpu h-full">
                       {/* Status Badge */}
                       <div className="absolute top-4 left-4 z-10">
-                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                          project.status === 'Live' 
-                            ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' 
-                            : 'bg-orange-100 text-orange-700 border border-orange-200'
-                        }`}>
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                            project.status === "Live"
+                              ? "bg-emerald-100 text-emerald-700 border border-emerald-200"
+                              : "bg-orange-100 text-orange-700 border border-orange-200"
+                          }`}
+                        >
                           {project.status}
                         </span>
                       </div>
@@ -466,11 +505,15 @@ function Projects() {
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        
+
                         {/* Quick Actions Overlay */}
-                        <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-500 ${
-                          hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
-                        }`}>
+                        <div
+                          className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-500 ${
+                            hoveredProject === project.id
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        >
                           <a
                             href={project.liveUrl}
                             target="_blank"
@@ -515,7 +558,9 @@ function Projects() {
                           <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors duration-300">
                             {project.title}
                           </h3>
-                          <p className="text-blue-600 font-medium text-sm">{project.subtitle}</p>
+                          <p className="text-blue-600 font-medium text-sm">
+                            {project.subtitle}
+                          </p>
                         </div>
 
                         {/* Description */}
@@ -525,14 +570,16 @@ function Projects() {
 
                         {/* Technologies */}
                         <div className="flex flex-wrap gap-1 mb-4">
-                          {project.technologies.slice(0, 3).map((tech, index) => (
-                            <span
-                              key={index}
-                              className="px-2 py-1 bg-slate-100 text-slate-700 rounded-md text-xs font-medium border border-slate-200"
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                          {project.technologies
+                            .slice(0, 3)
+                            .map((tech, index) => (
+                              <span
+                                key={index}
+                                className="px-2 py-1 bg-slate-100 text-slate-700 rounded-md text-xs font-medium border border-slate-200"
+                              >
+                                {tech}
+                              </span>
+                            ))}
                           {project.technologies.length > 3 && (
                             <span className="px-2 py-1 bg-slate-100 text-slate-500 rounded-md text-xs">
                               +{project.technologies.length - 3}
@@ -551,7 +598,7 @@ function Projects() {
                             <Globe className="w-3 h-3" />
                             Demo
                           </a>
-                          
+
                           <a
                             href={project.githubUrl}
                             target="_blank"
@@ -576,14 +623,17 @@ function Projects() {
               <div className="mb-8">
                 <h2 className="text-4xl font-bold text-slate-900 mb-4">
                   Ready to bring your
-                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> vision to life?</span>
+                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    {" "}
+                    vision to life?
+                  </span>
                 </h2>
                 <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                  I'm passionate about creating exceptional digital experiences and would love to collaborate 
-                  on your next innovative project.
+                  I'm passionate about creating exceptional digital experiences
+                  and would love to collaborate on your next innovative project.
                 </p>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1 flex items-center justify-center gap-2">
                   Start a Project
@@ -610,9 +660,13 @@ function Projects() {
             transform: translate3d(0, 0, 0);
           }
         }
-        
+
         .bg-gradient-radial {
-          background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to));
+          background: radial-gradient(
+            circle,
+            var(--tw-gradient-from),
+            var(--tw-gradient-to)
+          );
         }
 
         .line-clamp-3 {
