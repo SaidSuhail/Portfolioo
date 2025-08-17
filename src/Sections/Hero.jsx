@@ -659,7 +659,7 @@ function Hero() {
                   size="small"
                   className="hover:shadow-md hover:shadow-blue-500/10 px-4 py-2"
                 >
-                  <a href="src/assets/saidsuhailvp (5).pdf" download>
+                  <a href="src/assets/saidsuhailvp (5).pdf" download="SaidSuhailVP_Resume.pdf" type="application/pdf">
                     <span className="flex items-center gap-1.5 text-sm">
                       <span>Resume</span>
                       <span className="text-base">↓</span>
