@@ -1,148 +1,3 @@
-// import React from 'react';
-// import { Github, Code, Globe } from 'lucide-react';
-
-// function Projects() {
-//   // Sample project data - replace with your actual projects
-//   const projects = [
-//     {
-//       id: 1,
-//       title: "E-Commerce Dashboard",
-//       description: "A modern React dashboard for managing online stores with real-time analytics and inventory management.",
-//       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-//       liveUrl: "https://your-project-live.com",
-//       githubUrl: "https://github.com/yourusername/ecommerce-dashboard",
-//       technologies: ["React", "Node.js", "MongoDB", "Chart.js"]
-//     },
-//     {
-//       id: 2,
-//       title: "Weather App",
-//       description: "Beautiful weather application with location-based forecasts, interactive maps, and detailed weather insights.",
-//       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-//       liveUrl: "https://your-weather-app.com",
-//       githubUrl: "https://github.com/yourusername/weather-app",
-//       technologies: ["React", "API Integration", "CSS3", "JavaScript"]
-//     },
-//     {
-//       id: 3,
-//       title: "Task Management System",
-//       description: "Collaborative task management platform with real-time updates, team collaboration, and progress tracking.",
-//       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-//       liveUrl: "https://your-task-manager.com",
-//       githubUrl: "https://github.com/yourusername/task-manager",
-//       technologies: ["React", "Firebase", "Tailwind CSS", "Context API"]
-//     },
-//     {
-//       id: 4,
-//       title: "Portfolio Website",
-//       description: "Personal portfolio website showcasing projects, skills, and professional experience with modern animations.",
-//       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-//       liveUrl: "https://your-portfolio.com",
-//       githubUrl: "https://github.com/yourusername/portfolio",
-//       technologies: ["React", "Framer Motion", "Tailwind CSS", "TypeScript"]
-//     }
-//   ];
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 py-12 px-4">
-//       <div className="max-w-7xl mx-auto">
-//         {/* Header Section */}
-//         <div className="text-center mb-16">
-//           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6">
-//             <Code className="w-8 h-8 text-white" />
-//           </div>
-//           <h1 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text">
-//             My Projects
-//           </h1>
-//           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-//             A collection of my latest work showcasing modern web development and creative solutions
-//           </p>
-//         </div>
-
-//         {/* Projects Grid */}
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//           {projects.map((project) => (
-//             <div
-//               key={project.id}
-//               className="group bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-blue-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
-//             >
-//               {/* Project Image */}
-//               <div className="relative overflow-hidden">
-//                 <img
-//                   src={project.image}
-//                   alt={project.title}
-//                   className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
-//                 />
-//                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-//               </div>
-
-//               {/* Project Content */}
-//               <div className="p-6">
-//                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">
-//                   {project.title}
-//                 </h3>
-//                 <p className="text-gray-300 mb-3 leading-relaxed text-sm">
-//                   {project.description}
-//                 </p>
-
-//                 {/* Technologies */}
-//                 <div className="flex flex-wrap gap-1.5 mb-4">
-//                   {project.technologies.map((tech, index) => (
-//                     <span
-//                       key={index}
-//                       className="px-2 py-1 bg-blue-600/20 text-blue-200 rounded-md text-xs border border-blue-400/20"
-//                     >
-//                       {tech}
-//                     </span>
-//                   ))}
-//                 </div>
-
-//                 {/* Action Links */}
-//                 <div className="flex justify-between items-center">
-//                   <a
-//                     href={project.liveUrl}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:shadow-lg hover:shadow-blue-500/25"
-//                   >
-//                     <Globe className="w-4 h-4" />
-//                     Live Demo
-//                   </a>
-
-//                   <a
-//                     href={project.githubUrl}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-all duration-300"
-//                     title="View on GitHub"
-//                   >
-//                     <Github className="w-5 h-5" />
-//                   </a>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Call to Action */}
-//         <div className="text-center mt-16">
-//           <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-//             <h2 className="text-3xl font-bold text-white mb-4">
-//               Interested in collaborating?
-//             </h2>
-//             <p className="text-gray-300 mb-6 text-lg">
-//               I'm always open to discussing new opportunities and exciting projects.
-//             </p>
-//             <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105">
-//               Get In Touch
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Projects;
 
 import React, { useState, useRef, useEffect } from "react";
 import {
@@ -157,6 +12,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 import * as THREE from "three";
+import BabyBlissImg from "../assets/Gemini_Generated_Image_3rhp9l3rhp9l3rhp.png";
+import PlantHubImg from "../assets/Gemini_Generated_Image_9nreaf9nreaf9nre.png";
+import ChatBotImg from "../assets/Gemini_Generated_Image_t2ztoct2ztoct2zt.png";
+import PortfolioImg from "../assets/Gemini_Generated_Image_163y5e163y5e163y.png";
+import NetflixImg from "../assets/netflix-1652679757.jpg";
+
 
 // Floating Particles Component using Three.js
 function FloatingParticles() {
@@ -265,100 +126,79 @@ function Projects() {
   const carouselRef = useRef(null);
 
   // Enhanced project data
-  const projects = [
-    {
-      id: 1,
-      title: "BabyBliss E-Commerce",
-      subtitle: "BabyProducts Selling Platform",
-      description:
-        "A comprehensive React-based dashboard featuring real-time analytics, advanced inventory management, and seamless user experience.",
-      image: "src/assets/Gemini_Generated_Image_3rhp9l3rhp9l3rhp.png",
-      liveUrl: "https://your-project-live.com",
-      githubUrl: "https://github.com/SaidSuhail/BabyBlissBackendAPI",
-      technologies: ["React", "Entity", "Mssql", "Chart.js", "Jwt", "Razorpay"],
-      status: "Live",
-      year: "2024",
-      stats: { stars: 124, contributors: 3 },
-    },
-    {
-      id: 2,
-      title: "PlantHub",
-      subtitle: "Plant Managing Platform",
-      description:
-        "Subscription Based Plant Buying And Management Platform Aims To Promote PlantFarming",
-      image: "src/assets/Gemini_Generated_Image_9nreaf9nreaf9nre.png",
-      liveUrl: "https://plant-care-hub.vercel.app/",
-      githubUrl: "https://github.com/SaidSuhail/PlantHubBackendMain",
-      technologies: [
-        "React",
-        "Tailwindcss",
-        "Entity",
-        "SignalR",
-        "Framer Motion"
-      ],
-      status: "Live",
-      year: "2024",
-      stats: { stars: 89, contributors: 2 },
-    },
-    {
-      id: 3,
-      title: "ChatBot",
-      subtitle: "Automated Chat Bot",
-      description:"An intelligent auto-replying chatbot powered by OpenAI that can understand natural language, generate human-like responses, and engage in meaningful conversations. Designed to streamline communication, provide instant replies, and enhance user experience across different platforms.",
-      image: "src/assets/Gemini_Generated_Image_t2ztoct2ztoct2zt.png",
-      liveUrl: "https://your-task-manager.com",
-      githubUrl: "https://github.com/yourusername/task-manager",
-      technologies: ["React", "Mssql", "Tailwind CSS", ".NET"],
-      status: "Beta",
-      year: "2024",
-      stats: { stars: 156, contributors: 5 },
-    },
-    {
-      id: 4,
-      title: "Personal Portfolio",
-      subtitle: "Interactive Design Showcase",
-      description:
-        "Award-winning portfolio website featuring cutting-edge animations, immersive 3D elements, and sophisticated user interactions.",
-      image:
-        "src/assets/Gemini_Generated_Image_163y5e163y5e163y.png",
-      liveUrl: "https://portfolioo-fawn-eight.vercel.app/",
-      githubUrl: "https://github.com/SaidSuhail/Portfolioo",
-      technologies: ["React", "Framer Motion", "Three.js", "GSAP","Email.js"],
-      status: "Live",
-      year: "2023",
-      stats: { stars: 203, contributors: 1 },
-    },
-    {
-      id: 5,
-      title: "AI Chat Assistant",
-      subtitle: "Intelligent Conversation Platform",
-      description:
-        "Modern chat application with AI-powered responses, real-time messaging, and advanced natural language processing.",
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-      liveUrl: "https://your-ai-chat.com",
-      githubUrl: "https://github.com/yourusername/ai-chat",
-      technologies: ["React", "OpenAI", "Socket.io", "Redis"],
-      status: "Live",
-      year: "2024",
-      stats: { stars: 78, contributors: 4 },
-    },
-    {
-      id: 6,
-      title: "Netflix Clone",
-      subtitle: "Clone of Netflix Ui",
-      description:
-        "Professional cryptocurrency tracking platform with advanced charting, portfolio management, and market insights.",
-      image:
-        "src/assets/netflix-1652679757.jpg",
-      liveUrl: "https://your-crypto-tracker.com",
-      githubUrl: "https://github.com/yourusername/crypto-tracker",
-      technologies: ["React", "js", "css","Bootstrap"],
-      status: "Live",
-      year: "2024",
-      stats: { stars: 92, contributors: 2 },
-    },
-  ];
+const projects = [
+  {
+    id: 1,
+    title: "BabyBliss E-Commerce",
+    subtitle: "BabyProducts Selling Platform",
+    description:
+      "A comprehensive React-based dashboard featuring real-time analytics, advanced inventory management, and seamless user experience.",
+    image: BabyBlissImg,
+    liveUrl: "https://your-project-live.com",
+    githubUrl: "https://github.com/SaidSuhail/BabyBlissBackendAPI",
+    technologies: ["React", "Entity", "Mssql", "Chart.js", "Jwt", "Razorpay"],
+    status: "Live",
+    year: "2024",
+    stats: { stars: 124, contributors: 3 },
+  },
+  {
+    id: 2,
+    title: "PlantHub",
+    subtitle: "Plant Managing Platform",
+    description:
+      "Subscription Based Plant Buying And Management Platform Aims To Promote PlantFarming",
+    image: PlantHubImg,
+    liveUrl: "https://plant-care-hub.vercel.app/",
+    githubUrl: "https://github.com/SaidSuhail/PlantHubBackendMain",
+    technologies: ["React", "Tailwindcss", "Entity", "SignalR", "Framer Motion"],
+    status: "Live",
+    year: "2024",
+    stats: { stars: 89, contributors: 2 },
+  },
+  {
+    id: 3,
+    title: "ChatBot",
+    subtitle: "Automated Chat Bot",
+    description:
+      "An intelligent auto-replying chatbot powered by OpenAI that can understand natural language, generate human-like responses, and engage in meaningful conversations.",
+    image: ChatBotImg,
+    liveUrl: "https://your-task-manager.com",
+    githubUrl: "https://github.com/yourusername/task-manager",
+    technologies: ["React", "Mssql", "Tailwind CSS", ".NET"],
+    status: "Beta",
+    year: "2024",
+    stats: { stars: 156, contributors: 5 },
+  },
+  {
+    id: 4,
+    title: "Personal Portfolio",
+    subtitle: "Interactive Design Showcase",
+    description:
+      "Award-winning portfolio website featuring cutting-edge animations, immersive 3D elements, and sophisticated user interactions.",
+    image: PortfolioImg,
+    liveUrl: "https://portfolioo-fawn-eight.vercel.app/",
+    githubUrl: "https://github.com/SaidSuhail/Portfolioo",
+    technologies: ["React", "Framer Motion", "Three.js", "GSAP", "Email.js"],
+    status: "Live",
+    year: "2023",
+    stats: { stars: 203, contributors: 1 },
+  },
+  {
+    id: 6,
+    title: "Netflix Clone",
+    subtitle: "Clone of Netflix Ui",
+    description:
+      "Professional cryptocurrency tracking platform with advanced charting, portfolio management, and market insights.",
+    image: NetflixImg,
+    liveUrl: "https://your-crypto-tracker.com",
+    githubUrl: "https://github.com/yourusername/crypto-tracker",
+    technologies: ["React", "js", "css","Bootstrap"],
+    status: "Live",
+    year: "2024",
+    stats: { stars: 92, contributors: 2 },
+  },
+];
+
 
   const cardsPerView = 1;
   const maxIndex = Math.max(0, projects.length - cardsPerView);
@@ -402,21 +242,6 @@ function Projects() {
 
       <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          {/* <div className="text-center mb-20">
-            <div className="space-y-6">
-              <h1 className="text-6xl md:text-7xl font-bold text-slate-900 leading-tight">
-                Featured
-                <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent animate-pulse">
-                  Projects
-                </span>
-              </h1>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                A curated collection of innovative solutions, creative experiments, and production-ready applications 
-                showcasing modern development practices and cutting-edge technologies.
-              </p>
-            </div>
-          </div> */}
           <div className="text-center mb-20">
             <div className="space-y-6">
               <h1 className="text-6xl md:text-7xl font-light text-gray-900 dark:text-blue leading-tight tracking-tight">
