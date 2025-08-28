@@ -162,8 +162,8 @@ const projects = [
     description:
       "An intelligent auto-replying chatbot powered by OpenAI that can understand natural language, generate human-like responses, and engage in meaningful conversations.",
     image: ChatBotImg,
-    liveUrl: "https://your-task-manager.com",
-    githubUrl: "https://github.com/yourusername/task-manager",
+    liveUrl: "https://chat-ui-neon-phi.vercel.app/",
+    githubUrl: "https://github.com/SaidSuhail/ChatBot",
     technologies: ["React", "Mssql", "Tailwind CSS", ".NET"],
     status: "Beta",
     year: "2024",
@@ -190,8 +190,8 @@ const projects = [
     description:
       "Professional cryptocurrency tracking platform with advanced charting, portfolio management, and market insights.",
     image: NetflixImg,
-    liveUrl: "https://your-crypto-tracker.com",
-    githubUrl: "https://github.com/yourusername/crypto-tracker",
+    liveUrl: "https://netflix-clone-phi-ivory.vercel.app/",
+    githubUrl: "https://github.com/SaidSuhail/Netflix-clone",
     technologies: ["React", "js", "css","Bootstrap"],
     status: "Live",
     year: "2024",
