@@ -214,6 +214,39 @@ const projects = [
   const goToSlide = (index) => {
     setCurrentIndex(Math.min(Math.max(index, 0), maxIndex));
   };
+useEffect(() => {
+  let startX = 0;
+
+  const handleTouchStart = (e) => {
+    startX = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (diff > 50) {
+      // swipe left → next
+      setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+    } else if (diff < -50) {
+      // swipe right → prev
+      setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    }
+  };
+
+  const carousel = carouselRef.current;
+  if (carousel) {
+    carousel.addEventListener("touchstart", handleTouchStart);
+    carousel.addEventListener("touchend", handleTouchEnd);
+  }
+
+  return () => {
+    if (carousel) {
+      carousel.removeEventListener("touchstart", handleTouchStart);
+      carousel.removeEventListener("touchend", handleTouchEnd);
+    }
+  };
+}, [maxIndex]);
 
   // Removed auto-scroll - manual navigation only
 
