@@ -251,7 +251,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import DeveloperCard from "../Components/DeveloperCard";
-
+import ResumePDF from "../assets/Saidsuhail_FullStack_Dotnet_Developer.pdf";
 // Material-UI inspired components with Tailwind (Light Theme)
 const Button = ({
   children,
@@ -659,7 +659,17 @@ function Hero() {
                   size="small"
                   className="hover:shadow-md hover:shadow-blue-500/10 px-4 py-2"
                 >
-                  <a href="src/assets/saidsuhailvp (5).pdf" download="SaidSuhailVP_Resume.pdf" type="application/pdf">
+                  {/* <a href="src/assets/Saidsuhail FullStack Dotnet Developer.pdf" download="SaidSuhailVP_Resume.pdf" type="application/pdf">
+                    <span className="flex items-center gap-1.5 text-sm">
+                      <span>Resume</span>
+                      <span className="text-base">↓</span>
+                    </span>
+                  </a> */}
+                  <a
+                    href={ResumePDF}
+                    download="SaidSuhailVP.pdf"
+                    type="application/pdf"
+                  >
                     <span className="flex items-center gap-1.5 text-sm">
                       <span>Resume</span>
                       <span className="text-base">↓</span>
